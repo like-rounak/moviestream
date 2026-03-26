@@ -4,6 +4,14 @@
 // Since the user is deploying frontend to Vercel and running backend locally:
 // Let's default to localhost:3000 but add a very small setting to update it if needed.
 
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').then(reg => {
+            console.log('Bypass Service Worker registered:', reg.scope);
+        }).catch(err => console.error('SW registration failed:', err));
+    });
+}
+
 let API_BASE = localStorage.getItem('moviestream_api_url') || 'https://untangentally-tetchy-keena.ngrok-free.dev';
 
 document.addEventListener('DOMContentLoaded', () => {
