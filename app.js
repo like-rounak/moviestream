@@ -4,7 +4,7 @@
 // Since the user is deploying frontend to Vercel and running backend locally:
 // Let's default to localhost:3000 but add a very small setting to update it if needed.
 
-let API_BASE = localStorage.getItem('moviestream_api_url') || 'http://localhost:3000';
+let API_BASE = localStorage.getItem('moviestream_api_url') || 'https://rounaks-moviestream.loca.lt';
 
 document.addEventListener('DOMContentLoaded', () => {
     const listUl = document.getElementById('movie-list-ul');
@@ -36,7 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to fetch movies
     function fetchMovies() {
-        fetch(`${API_BASE}/movies`)
+        // Bypass localtunnel warning using the specific header
+        fetch(`${API_BASE}/movies`, {
+            headers: {
+                'Bypass-Tunnel-Reminder': 'true'
+            }
+        })
             .then(res => {
                 if (!res.ok) throw new Error('Network response was not ok');
                 return res.json();
