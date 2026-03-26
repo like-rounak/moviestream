@@ -178,3 +178,61 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #ffffff40;
 }
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column-reverse;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex: 1;
+        border-right: none;
+        border-top: 1px solid #ffffff10;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+    }
+
+    .player-container {
+        flex: none;
+        height: 40vh;
+        min-height: 250px;
+    }
+
+    .player-wrapper {
+        padding: 0;
+    }
+
+    #video-player {
+        border-radius: 0;
+    }
+
+    .movie-info {
+        padding: 15px 20px;
+    }
+
+    #current-movie-title {
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+
+    .no-video h2 {
+        font-size: 18px;
+    }
+
+    .logo {
+        padding: 15px 20px;
+    }
+
+    .logo h2 {
+        font-size: 20px;
+    }
+
+    .movie-list h3 {
+        padding: 0 20px;
+    }
+
+    #movie-list-ul li {
+        padding: 12px 20px;
+    }
+}

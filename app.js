@@ -4,7 +4,7 @@
 // Since the user is deploying frontend to Vercel and running backend locally:
 // Let's default to localhost:3000 but add a very small setting to update it if needed.
 
-let API_BASE = localStorage.getItem('moviestream_api_url') || 'https://rounaks-moviestream.loca.lt';
+let API_BASE = localStorage.getItem('moviestream_api_url') || 'https://untangentally-tetchy-keena.ngrok-free.dev';
 
 document.addEventListener('DOMContentLoaded', () => {
     const listUl = document.getElementById('movie-list-ul');
@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to fetch movies
     function fetchMovies() {
-        // Bypass localtunnel warning using the specific header
+        // Bypass Ngrok free tier warning
         fetch(`${API_BASE}/movies`, {
             headers: {
-                'Bypass-Tunnel-Reminder': 'true'
+                'ngrok-skip-browser-warning': 'true'
             }
         })
             .then(res => {
