@@ -12,7 +12,7 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-let API_BASE = localStorage.getItem('moviestream_api_url') || 'https://missions-forbes-oven-subsection.trycloudflare.com';
+let API_BASE = localStorage.getItem('moviestream_api_url') || 'https://cabin-traffic-connections-photo.trycloudflare.com';
 
 document.addEventListener('DOMContentLoaded', () => {
     const listUl = document.getElementById('movie-list-ul');
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const settingsBtn = document.getElementById('settings-btn');
     if (settingsBtn) {
         settingsBtn.addEventListener('click', () => {
-            const newUrl = prompt('Enter Backend URL (e.g. http://localhost:3000 or your Ngrok URL):', API_BASE);
+            const newUrl = prompt('Enter Backend URL (e.g. http://localhost:3000 or your Cloudflare URL):', API_BASE);
             if (newUrl !== null) {
                 let cleanUrl = newUrl.trim();
                 if (cleanUrl.endsWith('/')) cleanUrl = cleanUrl.slice(0, -1);
@@ -42,14 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
         settingsBtn.addEventListener('mouseleave', () => settingsBtn.style.color = 'var(--text-secondary)');
     }
 
-    // Function to fetch movies
     function fetchMovies() {
-        // Bypass Ngrok free tier warning
-        fetch(`${API_BASE}/movies`, {
-            headers: {
-                'ngrok-skip-browser-warning': 'true'
-            }
-        })
+        fetch(`${API_BASE}/movies`)
             .then(res => {
                 if (!res.ok) throw new Error('Network response was not ok');
                 return res.json();
