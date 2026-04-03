@@ -12,7 +12,7 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-let API_BASE = localStorage.getItem('moviestream_api_url') || 'https://minolta-apollo-collected-ment.trycloudflare.com';
+let API_BASE = localStorage.getItem('moviestream_api_url') || 'https://missions-forbes-oven-subsection.trycloudflare.com';
 
 document.addEventListener('DOMContentLoaded', () => {
     const listUl = document.getElementById('movie-list-ul');
