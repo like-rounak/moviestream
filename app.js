@@ -12,7 +12,7 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-const DEFAULT_API_BASE = 'https://essays-computing-nations-integrated.trycloudflare.com';
+const DEFAULT_API_BASE = 'https://web-reach-thirty-mail.trycloudflare.com/';
 const LOCALHOST_API_BASE = 'http://localhost:3000';
 let API_BASE = localStorage.getItem('moviestream_api_url') || DEFAULT_API_BASE;
 
